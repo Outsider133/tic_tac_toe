@@ -13,4 +13,3 @@ class Board:
         for row in self.board:
             print('|'.join(row))
             print('-' * 5)
-
