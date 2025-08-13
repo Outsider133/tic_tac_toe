@@ -1,6 +1,6 @@
 from gameparts import Board
 
-
+"""Импортируем модуль описывающий поле и запускаем игру."""
 
 def main():
     game = Board()
@@ -11,4 +11,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main() 
+    main()
