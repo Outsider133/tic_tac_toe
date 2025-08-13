@@ -5,6 +5,12 @@ from gameparts.exceptions import CellOccupiedError, FieldIndexError
 
 """Импортируем модуль описывающий поле и запускаем игру."""
 
+def save_result(results):
+    file = open('results.txt', 'a', encoding='utf-8')
+    file.write(results + '\n')
+    file.close
+
+
 def main():
 
     game = Board()
@@ -25,7 +31,6 @@ def main():
                 if column < 0 or column >= game.field_size:
                     raise FieldIndexError
                 if game.board[row][column] != ' ':
-                    # Вот тут выбрасывается новое исключение.
                     raise CellOccupiedError
 
             except ValueError:
@@ -57,13 +62,22 @@ def main():
         game.display()
 
         if game.check_win(current_player):
-            print(f'Победили {current_player}.')
-            running = False
-        elif game.is_board_full():
-            print('Ничья!')
+            result = f'Победили {current_player}.'
+            save_result(result)
+            print(result)
             running = False
 
+
+        elif game.is_board_full():
+            result = 'Ничья!'
+            save_result(result)
+            print(result)
+            running = False
+
+
         current_player = 'O' if current_player == 'X' else 'X'
+
+
 
 if __name__ == '__main__':
     main()
