@@ -5,9 +5,9 @@ from gameparts.exceptions import CellOccupiedError, FieldIndexError
 
 """Импортируем модуль описывающий поле и запускаем игру."""
 
-def save_result(results):
-    with open('hello_bro.txt', 'w', encoding='utf-8') as f:
-        f.write(results + '\n')
+def save_result(result):
+    with open('results.txt', 'w', encoding='utf-8') as f:
+        f.write(result + '\n')
 
 
 def main():
